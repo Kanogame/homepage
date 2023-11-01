@@ -1,6 +1,5 @@
 const floatingBoxHeight = 100;
 const container = document.querySelector(".background");
-FPS = 100
 
 boxes = [];
 
@@ -20,9 +19,9 @@ function moveBoxes() {
     for (var i = 0, x = boxes.length; i < x; i++) {
         var s = boxes[i];
       
-        s.left += s.vx / 10;
-        s.top += s.vy / 10;
-        s.rotate += ((s.vx + s.vy) / 2) / 1000;
+        s.left += s.vx / 100;
+        s.top += s.vy / 100;
+        s.rotate += ((s.vx + s.vy) / 2) / 100;
         s.element.style.rotate = s.rotate + "deg";
         s.element.style.left = s.left + "px";
         s.element.style.top = s.top + "px"; 
@@ -35,7 +34,6 @@ function moveBoxes() {
 
 function tick() {
     moveBoxes();
-    requestAnimationFrame(tick);
 }
 
 
