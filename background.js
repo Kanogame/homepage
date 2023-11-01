@@ -1,4 +1,3 @@
-const floatingBoxHeight = 100;
 const container = document.querySelector(".background");
 
 boxes = [];
@@ -9,8 +8,8 @@ for (let i = 0; i < 10; i++) {
     boxes.push({element: floatingBox,
     vx: Math.floor(Math.random() * 50) - 25,
     vy: Math.floor(Math.random() * 50) - 25,
-    left: getRndInteger(0, window.innerWidth - (floatingBoxHeight * 2)),
-    top: getRndInteger(0, window.innerHeight - (floatingBoxHeight * 2)),
+    left: getRndInteger(0, window.innerWidth ),
+    top: getRndInteger(0, window.innerHeight ),
     rotate: Math.random() * 100});
 }
 
@@ -19,8 +18,8 @@ function moveBoxes() {
     for (var i = 0, x = boxes.length; i < x; i++) {
         var s = boxes[i];
       
-        s.left += s.vx / 100;
-        s.top += s.vy / 100;
+        s.left += s.vx / 60;
+        s.top += s.vy / 60;
         s.rotate += ((s.vx + s.vy) / 2) / 100;
         s.element.style.rotate = s.rotate + "deg";
         s.element.style.left = s.left + "px";
@@ -34,6 +33,7 @@ function moveBoxes() {
 
 function tick() {
     moveBoxes();
+    requestAnimationFrame(tick);
 }
 
 

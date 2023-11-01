@@ -25,7 +25,8 @@ body {
     width: 10vw;
     height: 10vw;
     border-radius: 24px;
-    background: #B6A4EF;
+    background: #62719b;
+    box-shadow: 0 0 20px 20px #62719b;
 }
 
 .menu {
