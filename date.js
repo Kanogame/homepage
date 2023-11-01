@@ -5,14 +5,14 @@ Date.prototype.today = function () {
     (this.getMonth()+1) +"/"+ this.getFullYear();
 }
 
-Date.prototype.timeNow = function () {
-     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + 
+Date.prototype.timeNow = function (plus) {
+     return (((this.getHours() + plus) < 10)?"0":"") + (this.getHours() + plus) +":"+ ((this.getMinutes() < 10)?"0":"") + 
      this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
 }
 
 function GetTime() {
     var currentdate = new Date();
-    var datetime = "UTC +7: " + currentdate.today() + " @ " + currentdate.timeNow();
+        var datetime = `UTC +7: ${currentdate.today()} @ ${currentdate.timeNow(7)}/ Moscow: ${currentdate.timeNow(3)}`;
     Time.innerHTML = datetime;
 }
 
