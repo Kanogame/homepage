@@ -1,5 +1,10 @@
 var i = 0;
 var txt = './welcome';
+var greetings = [
+"Welcome back, kanogames",
+"Приветсвую, kanogames",
+"おかえり、カノガメス"
+];
 var speed = 100;
 
 function typeWriter() {
@@ -8,7 +13,7 @@ function typeWriter() {
     i++;
     setTimeout(typeWriter, speed);
   } else {
-    setTimeout(() => {document.querySelector(".greetings").classList.add("active");}, 200);
+    setTimeout(() => {geeter = document.querySelector(".greetings"); geeter.classList.add("active"); geeter.innerHTML=greetings[Math.floor(Math.random() * 3)] }, 200);
     setTimeout(() => {document.querySelector(".date").classList.add("active");}, 400);
     setTimeout(() => {document.querySelector(".activities").classList.add("active_flex");}, 450);
   }
