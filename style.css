@@ -22,29 +22,78 @@ body {
 
 .floating {
     position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 12px;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 24px;
     background: #B6A4EF;
 }
 
 .menu {
-    font-family: "JetBrains-ExtraBold";
+    color: #c5ccda;
+    font-size: 20px;
+    font-family: "JetBrains-Regular";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 100px;
-    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    background: rgba(50, 50, 50, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3.7px);
     -webkit-backdrop-filter: blur(3.7px);
-    border: 1px solid rgba(255, 255, 255, 1);
+    border: 1px solid rgb(83, 83, 83);
 }
 
 .activities {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.greeter {
+    font-family: "JetBrains-ExtraBold";
+    font-size: 30px;
+    color: #c5ccda;
+}
+
+.date {
+    color: #B6A4EF;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.path {
+    color: #8599DB;
+    font-size: 22px;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.el {
+    color: #c5ccda;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.el:hover {
+    margin-left: 40px;
+    color: #adbae6;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.active {
+    display: block !important;
+}
+
+.active_flex {
+    display: flex !important;
 }
