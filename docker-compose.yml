@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+    front:
+      build:
+        context: "./"
+      image: homepage
+      ports:
+          - "80:80"
+      container_name: homepage-nginx
+      restart: unless-stopped
+      expose:
+        - "80"
+    redis:
+      container_name: homepage-redis
+      image: 'redis:latest'
+      ports:
+          - "6379:6379"
+      expose:
+        - "6379"
+      environment: 
+        - REDIS_PASSWORD=qwerty123
+      depends_on:
+        - front
