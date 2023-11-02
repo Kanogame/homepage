@@ -12,7 +12,7 @@ Date.prototype.timeNow = function (plus) {
 
 function GetTime() {
     var currentdate = new Date();
-        var datetime = `UTC +7: ${currentdate.today()} @ ${currentdate.timeNow(7)}/ Moscow: ${currentdate.timeNow(3)}`;
+        var datetime = `UTC +7: ${currentdate.today()} @ ${currentdate.timeNow(0)}/ Moscow: ${currentdate.timeNow(-4)}`;
     Time.innerHTML = datetime;
 }
 

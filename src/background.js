@@ -1,44 +1,50 @@
-const container = document.querySelector(".background");
+const canvas = document.querySelector(".background");
+const ctx = canvas.getContext('2d');
 
-boxes = [];
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-for (let i = 0; i < 10; i++) {
-    const floatingBox = document.createElement("div");
-    floatingBox.classList.add("floating");
-    boxes.push({element: floatingBox,
-    vx: Math.floor(Math.random() * 50) - 25,
-    vy: Math.floor(Math.random() * 50) - 25,
-    left: getRndInteger(0, window.innerWidth ),
-    top: getRndInteger(0, window.innerHeight ),
-    rotate: Math.random() * 100});
-}
+circles = [];
 
-function moveBoxes() {
-    container.innerHTML = "";
-    for (var i = 0, x = boxes.length; i < x; i++) {
-        var s = boxes[i];
+for (var i = 0; i < 10; i++) {
+    circles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.floor(Math.random() * 100),
+      vx: Math.floor(Math.random() * 50) - 25,
+      vy: Math.floor(Math.random() * 50) - 25
+    });
+  }
+
+function update() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.globalCompositeOperation = "lighter";
+
+    for (var i = 0, x = circles.length; i < x; i++) {
+        var s = circles[i];
       
-        s.left += s.vx / 60;
-        s.top += s.vy / 60;
-        s.rotate += ((s.vx + s.vy) / 2) / 100;
-        s.element.style.rotate = s.rotate + "deg";
-        s.element.style.left = s.left + "px";
-        s.element.style.top = s.top + "px"; 
-        container.append(s.element);
+        ctx.fillStyle = "#62719b";
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.fillStyle = 'black';
+        ctx.stroke();
+    }
 
-        if (s.left < 0 || s.left > window.innerWidth -100) s.vx = -s.vx;
-        if (s.top < 0 || s.top > window.innerHeight - 100) s.vy = -s.vy;
+    for (var i = 0, x = circles.length; i < x; i++) {
+        var s = circles[i];
+      
+        s.x += s.vx / 100;
+        s.y += s.vy / 100;
+        
+        if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
+        if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
     }
 }
 
 function tick() {
-    moveBoxes();
+    update();
     requestAnimationFrame(tick);
-}
-
-
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
 tick();

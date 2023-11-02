@@ -1,4 +1,4 @@
-var i = 0;
+var j = 0;
 var txt = './welcome';
 var greetings = [
 "Welcome back, kanogames",
@@ -8,9 +8,9 @@ var greetings = [
 var speed = 100;
 
 function typeWriter() {
-  if (i < txt.length) {
-    document.querySelector(".greeter").innerHTML += txt.charAt(i);
-    i++;
+  if (j < txt.length) {
+    document.querySelector(".greeter").innerHTML += txt.charAt(j);
+    j++;
     setTimeout(typeWriter, speed);
   } else {
     setTimeout(() => {geeter = document.querySelector(".greetings"); geeter.classList.add("active"); geeter.innerHTML=greetings[Math.floor(Math.random() * 3)] }, 200);

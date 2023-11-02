@@ -33,7 +33,7 @@ body {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    backdrop-filter: blur(35px);
+    backdrop-filter: blur(15px);
 }
 
 .menu {
