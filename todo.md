@@ -1,0 +1,5 @@
+- adding homelab section
+- custom tasks
+- hiding tasks
+- fetching backgrounds somewhere
+- themes?
