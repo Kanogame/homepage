@@ -13,16 +13,17 @@ const daily = [{
 const dailyContainer = document.querySelector(".daily");
 for (i of daily) {
   const task = document.createElement("div");
-  task.innerHTML = (GetTaskStatus(i.buttonId) == 1 ? "good" : "bad") + i.name; 
+  const status = await GetTaskStatus(i.buttonId);
+  task.innerHTML = (status.value === "1" ? "good" : "bad") + i.name; 
   document.getElementById(i.buttonId).addEventListener("click", () => {
-    return SetTaskStatus(taskid);
+    return SetTaskStatus(i.buttonId);
   });
   dailyContainer.append(task);
 }
 
 async function GetTaskStatus(taskid) {
   try {
-    const response = await fetch("http://127.0.0.1/api/activities/get");
+    const response = await fetch("http://127.0.0.1/api/activities/get?type=" + taskid);
     const res = await response.json();
     return res;
   }
@@ -36,6 +37,6 @@ async function SetTaskStatus(taskid) {
       method: "POST", 
       headers: {
         "Content-Type": "application/json"},
-      body: JSON.stringify({type: taskid, value: 1})
+      body: JSON.stringify({type: taskid, value: "1"})
   })
 }
