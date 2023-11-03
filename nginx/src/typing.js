@@ -13,9 +13,14 @@ function typeWriter() {
     j++;
     setTimeout(typeWriter, speed);
   } else {
-    setTimeout(() => {geeter = document.querySelector(".greetings"); geeter.classList.add("active"); geeter.innerHTML=greetings[Math.floor(Math.random() * 3)] }, 200);
-    setTimeout(() => {document.querySelector(".date").classList.add("active");}, 400);
-    setTimeout(() => {document.querySelector(".activities").classList.add("active_flex");}, 450);
+    setTimeout(() => {geeter = document.querySelector(".greetings"); 
+    document.querySelector(".date").classList.add("active");
+    document.querySelector(".daily").classList.add("active");
+    document.querySelector(".daily-g").classList.add("active");
+    document.querySelector(".activities").classList.add("active_flex");
+    geeter.classList.add("active"); 
+    geeter.innerHTML=greetings[Math.floor(Math.random() * 3)];
+  }, 200);
   }
 }
 
