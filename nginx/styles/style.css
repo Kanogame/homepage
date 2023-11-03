@@ -112,3 +112,7 @@ body {
 .active_flex {
     display: flex !important;
 }
+
+.daily {
+    margin-left: 30px;
+}
