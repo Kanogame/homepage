@@ -19,16 +19,19 @@ const client = await createClient({
 
 app.post("/api/activities/edit", async (req, res) => {
     const data = req.body;
+    var todayEnd = new Date().setHours(23, 59, 59, 999);
     await client.set(data.type, data.value);
+    client.expireat(data.type, parseInt(todayEnd/1000));
     res.json({
         success: true,
     });
 });
 
 app.get("/api/activities/get", async (req, res) => {
+    const type = req.query.type;
     res.json({
         success: true,
-        activ: await client.get("activ")
+        value: await client.get(type)
     });
 });
 
