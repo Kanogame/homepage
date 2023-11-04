@@ -11,13 +11,13 @@ const daily = [{
 }]
 
 const dailyContainer = document.querySelector(".daily");
-for (i of daily) {
+for (let i = 0; i < daily.length; i++) {
   const task = document.createElement("div");
-  const status = await GetTaskStatus(i.buttonId);
-  task.innerHTML =(status.value === "1" ? "<span style='color:#9EBA96'>\uf42e</span> " : "<span style='color:#f9cb74'>!</span> ") + i.name; 
-  document.getElementById(i.buttonId).addEventListener("click", () => {
-    return SetTaskStatus(i.buttonId);
-  });
+  const status = await GetTaskStatus(daily[i].buttonId);
+  task.innerHTML =(status.value === "1" ? "<span style='color:#9EBA96'>\uf42e</span> " : "<span style='color:#f9cb74'>!</span> ") + daily[i].name; 
+  document.getElementById(daily[i].buttonId).addEventListener("click", async function () {
+    await SetTaskStatus(daily[i].buttonId);
+  }, false);
   dailyContainer.append(task);
 }
 

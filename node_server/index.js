@@ -13,15 +13,11 @@ const client = await createClient({
   })
 .on('error', err => console.log('Redis Client Error', err))
 .connect();
-//await client.set('key', 'value');
-//const value = await client.get('key');
-//await client.disconnect();
 
 app.post("/api/activities/edit", async (req, res) => {
     const data = req.body;
     var todayEnd = new Date().setHours(23, 59, 59, 999);
-    await client.set(data.type, data.value);
-    client.expireat(data.type, parseInt(todayEnd/1000));
+    await client.set(data.type, data.value, "EX", parseInt(todayEnd/1000));
     res.json({
         success: true,
     });
@@ -29,10 +25,17 @@ app.post("/api/activities/edit", async (req, res) => {
 
 app.get("/api/activities/get", async (req, res) => {
     const type = req.query.type;
-    res.json({
-        success: true,
-        value: await client.get(type)
-    });
+    try {
+        const resp = await client.get(type)
+        res.json({
+            success: true,
+            value: resp
+        });
+    } catch (e) {
+        res.json({
+            success: false,
+        });
+    }
 });
 
 app.listen(6969, () => {
