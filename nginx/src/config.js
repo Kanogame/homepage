@@ -1,3 +1,10 @@
-import data from "../config/homepage.json" assert {type: 'json'};
+import data from "../config/links.json" assert {type: 'json'};
 
-console.log(data);
+function createNewTab(tabName) {
+    const tab = document.createElement("div");
+    const tabText = document.createElement("div");
+    tabText.classList.add("path");
+    tab.classList.add("section");
+    tab.appendChild(tabText.appendChild(document.createTextNode(tabName)));
+    return tab
+}
