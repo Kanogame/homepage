@@ -1,22 +1,13 @@
-const daily = [{
-  name: "solve 1 task on duolingo",
-  buttonId: "duolingo",
-},
-{
-  name: "solve 1 task on genki",
-  buttonId: "genki",
-}, {
-  name: "solve 1 CTF on picoCTF",
-  buttonId: "picoCTF",
-}]
+import look from "../config/look.json" assert {type: 'json'};
+const tasks = look.tasks;
 
 const dailyContainer = document.querySelector(".daily");
-for (let i = 0; i < daily.length; i++) {
+for (let i = 0; i < tasks.length; i++) {
   const task = document.createElement("div");
-  const status = await GetTaskStatus(daily[i].buttonId);
-  task.innerHTML =(status.value === "1" ? "<span style='color:#9EBA96'>\uf42e</span> " : "<span style='color:#f9cb74'>!</span> ") + daily[i].name; 
-  document.getElementById(daily[i].buttonId).addEventListener("click", async function () {
-    await SetTaskStatus(daily[i].buttonId);
+  const status = await GetTaskStatus(tasks[i].id);
+  task.innerHTML =(status.value === "1" ? "<span style='color:#9EBA96'>\uf42e</span> " : "<span style='color:#f9cb74'>!</span> ") + tasks[i].name; 
+  document.getElementById(tasks[i].id).addEventListener("click", async function () {
+    await SetTaskStatus(tasks[i].id);
   }, false);
   dailyContainer.append(task);
 }

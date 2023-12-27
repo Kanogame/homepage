@@ -19,6 +19,7 @@ document.getElementById("activ").appendChild(tabsEl);
 function createNewLink(linkText, link) {
     const linkEl = document.createElement("a");
     linkEl.classList.add("el");
+    linkEl.id = linkText;
     linkEl.href = link; //hope no xss
     linkEl.appendChild(document.createTextNode(linkText));
     return linkEl
