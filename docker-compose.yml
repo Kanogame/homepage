@@ -9,6 +9,8 @@ services:
           - "80:80"
       container_name: homepage-nginx
       restart: unless-stopped
+      volumes:
+          - ./configs/frontend:/usr/share/nginx/html/config
       expose:
         - "80"
     node:  
