@@ -1,0 +1,76 @@
+{
+    "tabs": [
+        {
+            "name": "~/Social_Media/",
+            "links": [
+                {
+                    "name": "piped",
+                    "link": "https://piped.video/feed"
+                },
+                {
+                    "name": "mastodon",
+                    "link": "https://mstdn.social"
+                },
+                {
+                    "name": "reddit",
+                    "link": "https://reddit.com"
+                },
+                {
+                    "name": "discord",
+                    "link": "https://discord.com/app"
+                },
+                {
+                    "name": "matrix",
+                    "link": "https://matrix.org"
+                }
+            ]
+        },
+        {
+            "name": "~/Programming/",
+            "links": [
+                {
+                    "name": "github",
+                    "link": "https://github.com"
+                },
+                {
+                    "name": "leetcode",
+                    "link": "https://leetcode.com/"
+                },
+                {
+                    "name": "notes",
+                    "link": "todo (xdg open probably)"
+                }
+            ]
+        },
+        {
+            "name": "~/Productivity/",
+            "links": [
+                {
+                    "name": "picoCTF",
+                    "link": "https://www.picoctf.org/"
+                },
+                {
+                    "name": "CTFTime",
+                    "link": "https://ctftime.org/ctfs"
+                },
+                {
+                    "name": "monkeytype",
+                    "link": "https://monkeytype.com/"
+                }
+            ]
+        },
+        {
+            "name": "~/Japanese/",
+            "links": [
+                {
+                    "name": "duolingo",
+                    "link": "https://duolingo.com/"
+                },
+                {
+                    "name": "anki",
+                    "link": "xdg anki"
+                }
+            ]
+        }
+    ]
+}

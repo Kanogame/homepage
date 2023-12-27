@@ -1,0 +1,20 @@
+{
+    "background-type": "animated",
+    "tasks": [
+        {
+            "name": "complete 1 level on duolingo",
+            "id": "duolingo" 
+        },
+        {
+            "name": "learn 5 new words on anki",
+            "id": "anki" 
+        },
+        {
+            "name": "solve 1 task on picoCTF",
+            "id": "picostf" 
+        }
+    ],
+    "motd": [
+        "Welcome back, kanogames", "Приветсвую, kanogames", "おかえり、カノガメス"
+    ]
+}
